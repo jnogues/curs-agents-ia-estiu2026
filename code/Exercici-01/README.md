@@ -1,4 +1,4 @@
-# 030 — Codi Arduino · ESP32-S3
+# 01 — Codi Arduino · ESP32-S3
 
 Template per a l'ESP32-S3 que connecta per WiFi i MQTT, amb visualització d'estat
 via Neopixel integrat i lectura del sensor de temperatura intern.
@@ -42,7 +42,7 @@ Instal·lar des de l'**Library Manager** (`Eines → Gestiona llibreries…`):
 
 ### 1. Configuració pròpia de cada alumne
 
-Obre `030-code-arduino.ino` i canvia **el teu identificador**:
+Obre `Exercici-01.ino` i canvia **el teu identificador**:
 
 ```cpp
 #define ALUMNE_ID       "alumne01"     // <-- posa el teu número d'alumne
@@ -141,5 +141,5 @@ Cada tasca comparteix la variable `estatActual` (volàtil) per coordinar-se.
 
 | Fitxer | Descripció |
 |--------|------------|
-| `030-code-arduino.ino` | Codi font complet del template |
+| `Exercici-01.ino` | Codi font complet del template |
 | `README.md` | Aquest document |
