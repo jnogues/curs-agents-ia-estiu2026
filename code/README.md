@@ -10,6 +10,7 @@
 |----------|-----------|------------|----------|
 | [Exercici-01](Exercici-01/) | Template base: WiFi multi-xarxa, MQTT, Neopixel, temperatura interna | `/esp32s3/<id>/` | ESP32-S3 (només la placa) |
 | [Exercici-02](Exercici-02/) | Sensor extern DS18B20: 4 tasques FreeRTOS, temperatura ambient | `/esp32s3/<id>/temperaturaDS` | + DS18B20 + resistència 4,7 kΩ |
+| [Exercici-03](Exercici-03/) | Control de 4 LEDs per MQTT: comandes ON/OFF/TOG, estat retained | `/esp32s3/<id>/ordre` | + 4 LEDs + 4 × 220 Ω |
 | _En breu..._ | | | |
 
 ---
@@ -45,3 +46,4 @@ mosquitto_sub -h 46.224.116.35 -t "/esp32s3/alumne01/#" -v
 |----------|-----------|
 | 01 | MycilaMQTT, Adafruit NeoPixel |
 | 02 | + OneWire, DallasTemperature |
+| 03 | (les mateixes que 02) |
