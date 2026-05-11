@@ -185,35 +185,44 @@ pm2 startup
 Parla amb OpenClaw des del mòbil:
 
 1. Obre Telegram i busca **@BotFather**
-2. Envia-li `/newbot` i segueix les instruccions
-3. Guarda el **token** que et doni
+2. Envia-li `/newbot` i segueix les instruccions (tria un nom i username)
+3. Guarda el **token** que et doni (tipus `123456:ABC-DEF...`)
 
-Edita el fitxer de configuració:
+### Opció recomanada: via wizard (més fàcil)
 
-```bash
-nano ~/.openclaw/openclaw.json
-```
-
-Afegeix-hi:
-
-```json
-{
-  "channels": {
-    "telegram": {
-      "enabled": true,
-      "token": "EL_TOKEN_DEL_TEU_BOT"
-    }
-  }
-}
-```
-
-Reinicia el servei:
+Executa de nou el wizard de configuració i aquest cop digues que **sí** a configurar canals:
 
 ```bash
-systemctl restart openclaw-gateway
+openclaw onboard
 ```
 
-Ara busca el teu bot a Telegram i envia-li "Hola"! 📱
+Quan et pregunti *"Do you want to set up messaging channels?"*, respon que sí. Tria **Telegram** i enganxa el token.
+
+Quan acabi, reinicia el gateway:
+
+```bash
+openclaw gateway restart
+```
+
+### Opció alternativa: via variable d'entorn (encara més ràpida)
+
+```bash
+export TELEGRAM_BOT_TOKEN=EL_TOKEN_DEL_TEU_BOT
+openclaw gateway restart
+```
+
+### Pareja el bot
+
+Obre Telegram, busca el teu bot i envia-li "Hola". Ell et donarà un codi de parell.
+
+Al VPS:
+
+```bash
+openclaw pairing list
+openclaw pairing approve telegram <CODI>
+```
+
+Ara ja tens OpenClaw al mòbil! 📱
 
 ---
 
