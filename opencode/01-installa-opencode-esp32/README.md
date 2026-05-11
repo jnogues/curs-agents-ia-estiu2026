@@ -15,7 +15,7 @@ Instal·lar OpenCode al teu ordinador i usar-lo per programar ESP32 amb assistè
 - **Un ordinador** (Windows, macOS o Linux)
 - **Cable USB** per connectar l'ESP32
 - **Arduino IDE** instal·lat (amb suport per ESP32)
-- **Una API key** d'OpenRouter, Anthropic o OpenAI
+- **Una API key** — la que millor et vagi (DeepSeek, OpenRouter, Anthropic...)
 - Saber copiar i enganxar comandes al terminal
 
 ---
@@ -42,13 +42,15 @@ opencode --version
 
 ## Pas 2: Configura una API key
 
-OpenCode necessita un model d'IA. Tria el que vulguis:
+OpenCode necessita un model d'IA. La millor opció per al curs:
 
-### Opció A: OpenRouter (Recomanat — molts models)
+### ⭐ Opció A: DeepSeek via OpenRouter (Recomanat)
+
+DeepSeek és el model més barat i el que fem servir al curs. OpenCode l'usa a través d'OpenRouter:
 
 1. Ves a [openrouter.ai/keys](https://openrouter.ai/keys) i crea un compte
-2. Clica **Create Key**
-3. Copia la clau (comença per `sk-or-...`)
+2. Clica **Create Key** i copia la clau (comença per `sk-or-...`)
+3. Afegeix una mica de crèdit a OpenRouter (5€ duren mesos)
 
 Configura-la:
 
@@ -56,25 +58,38 @@ Configura-la:
 export OPENROUTER_API_KEY=sk-or-EL_TEU_TOKEN
 ```
 
-### Opció B: DeepSeek (més barat)
+Quan utilitzis OpenCode, especifica el model:
 
-1. Ves a [platform.deepseek.com](https://platform.deepseek.com) i crea un compte
-2. Ves a **API Keys** → **Create API Key**
-3. Copia la clau
+```bash
+opencode run "..." --model openrouter/deepseek/deepseek-chat
+```
 
-Com que DeepSeek no és un provider natiu d'OpenCode, el millor és fer-lo servir **via OpenRouter**: afegeix DeepSeek com a model a OpenRouter i usa la clau d'OpenRouter.
+> 💡 **Consell:** Per no haver d'escriure `--model` cada cop, crea un alias:
+> ```bash
+> alias opencode='opencode --model openrouter/deepseek/deepseek-chat'
+> ```
 
-> **Consell:** Per no haver d'exportar la clau cada cop, afegeix-la al teu `~/.bashrc`:
+### Opció B: OpenRouter (altres models)
+
+Si vols provar models més potents (Claude, GPT...):
+
+```bash
+export OPENROUTER_API_KEY=sk-or-EL_TEU_TOKEN
+opencode run "..." --model openrouter/anthropic/claude-sonnet-4
+```
+
+### Opció C: Anthropic Claude (directe)
+
+```bash
+export ANTHROPIC_API_KEY=sk-ant-...
+opencode run "..."
+```
+
+> **Consell permanent:** Per no exportar la clau cada cop, afegeix-la al `~/.bashrc`:
 > ```bash
 > echo 'export OPENROUTER_API_KEY=sk-or-...' >> ~/.bashrc
 > source ~/.bashrc
 > ```
-
-### Opció C: Anthropic Claude
-
-```bash
-export ANTHROPIC_API_KEY=sk-ant-...
-```
 
 ---
 
@@ -170,34 +185,11 @@ Obre l'Arduino IDE, carrega el fitxer millorat, selecciona la placa i el port, i
 
 ---
 
-## ⚠️ Important: OpenCode al VPS del curs
-
-Si vols usar OpenCode **al VPS del curs** (userXX), els passos són els mateixos però:
-
-```bash
-# Connectat al VPS
-ssh userXX@178.105.91.211
-
-# Instal·la OpenCode
-npm install -g opencode-ai@latest
-
-# Configura la API key (la mateixa que usa Hermes, via OpenRouter)
-export OPENROUTER_API_KEY=sk-or-...
-
-# Prova
-export PATH="$HOME/.npm-global/bin:$PATH"
-opencode --version
-```
-
-> **Nota:** El codi generat al VPS el pots copiar al teu ordinador local per pujar-lo a l'ESP32 via Arduino IDE.
-
----
-
 ## 🎯 Llista de verificació
 
 - [ ] Node.js instal·lat (`node --version`)
 - [ ] OpenCode instal·lat (`opencode --version`)
-- [ ] API key configurada (`export OPENROUTER_API_KEY=...`)
+- [ ] API key configurada (`export OPENROUTER_API_KEY=...` + `--model deepseek/...`)
 - [ ] OpenCode respon (`opencode run "Hola"`)
 - [ ] Codi ESP32 generat (`.ino`)
 - [ ] Arduino IDE amb suport ESP32
