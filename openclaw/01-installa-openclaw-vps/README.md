@@ -114,13 +114,24 @@ L'assistent et guiarà pas a pas per:
 
 ---
 
-## Pas 6: Prova'l
+## Pas 6: Prova'l amb el TUI
+
+Engega el gateway i obre la interfície interactiva (TUI):
 
 ```bash
-openclaw chat -q "Hola! Explica'm què ets i què saps fer"
+openclaw gateway start
+openclaw tui
+```
+
+El TUI és una pantalla interactiva on pots escriure missatges i veure les respostes d'OpenClaw en temps real. Escriu:
+
+```
+Hola! Explica'm què ets i què saps fer
 ```
 
 Si tot funciona, veuràs la resposta! 🎉
+
+Per sortir del TUI: `Ctrl+C` o `Esc` → `Quit`.
 
 ---
 
@@ -205,7 +216,7 @@ Ara busca el teu bot a Telegram i envia-li "Hola"! 📱
 - [ ] Node.js 22 instal·lat (`node --version`)
 - [ ] OpenClaw instal·lat (`openclaw --version`)
 - [ ] API Key configurada
-- [ ] Respon correctament (`openclaw chat -q "Hola"`)
+- [ ] Respon correctament (TUI: `openclaw tui`)
 - [ ] Servei actiu (systemd o PM2)
 - [ ] (Opcional) Telegram connectat
 
