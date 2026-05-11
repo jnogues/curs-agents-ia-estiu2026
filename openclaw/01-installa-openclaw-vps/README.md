@@ -69,15 +69,23 @@ openclaw --version
 
 OpenClaw necessita un model d'IA per funcionar. Tria el que vulguis:
 
-### Opció A: Anthropic Claude (Recomanat, millor qualitat)
+### Opció A: DeepSeek (⭐ Recomanat per al curs)
+
+1. Ves a [platform.deepseek.com](https://platform.deepseek.com) i crea un compte
+2. Ves a **API Keys** → **Create API Key**
+3. Copia la clau (comença per `sk-...`)
+
+**Cost:** ~0.5€/mes amb ús moderat. Perfecte per compartir una mateixa clau entre companys!
+
+### Opció B: Anthropic Claude
 
 1. Ves a [console.anthropic.com](https://console.anthropic.com) i crea un compte
 2. Ves a **API Keys** → **Create Key**
 3. Copia la clau (comença per `sk-ant-...`)
 
-**Cost estimat:** ~1-2€/mes amb ús moderat
+**Cost estimat:** ~1-2€/mes
 
-### Opció B: OpenAI GPT
+### Opció C: OpenAI GPT
 
 1. Ves a [platform.openai.com/api-keys](https://platform.openai.com/api-keys)
 2. Crea una API key
@@ -85,7 +93,7 @@ OpenClaw necessita un model d'IA per funcionar. Tria el que vulguis:
 
 **Cost estimat:** ~1-2€/mes
 
-### Opció C: Google Gemini (Gratis)
+### Opció D: Google Gemini (Gratis)
 
 1. Ves a [aistudio.google.com/apikey](https://aistudio.google.com/apikey)
 2. Clica **Create API Key**
