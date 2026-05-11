@@ -1,46 +1,49 @@
 # 📱 Activitat 05: Connecta Hermes al teu mòbil (Telegram)
 
-**Durada:** ~15 minuts
+|**Durada:** ~15 minuts
 **Dificultat:** ⭐⭐ (una mica més avançada)
 
 ## Objectiu
 
-Parlar amb el teu Hermes des del Telegram del mòbil! 🎉
+Parlar amb el teu Hermes des del Telegram del mòbil! 📱✨
 
 ## Passos
 
 ### 1. Crea un bot de Telegram
 
-Obre Telegram i busca **@BotFather** (és el bot oficial de Telegram per crear bots).
-
-Escriu-li:
+Obre Telegram i busca **@BotFather**:
 
 ```
 /newbot
 ```
 
 Et demanarà dos noms:
-- **Nom del bot:** `Hermes [El teu nom]` (ex: `Hermes Berta`)
-- **Username del bot:** Ha d'acabar en `bot`. Ex: `HermesBertaBot`
+- **Nom del bot:** posa el que vulguis (ex: `Hermes_Berta`)
+- **Username del bot:** ha d'acabar en `bot` (ex: `HermesBertaBot`)
 
-El BotFather et donarà un **token** que sembla això:
+El BotFather et donarà un **token**:
 ```
 1234567890:ABCdefGHIjklmNOPqrstUVwxyz
 ```
 
-**Guarda aquest token!** El necessitaràs al pas 2.
+> 🔑 **Guarda'l!** El necessitaràs al pas 2.
 
-### 2. Configura el gateway al VPS
+---
 
-Des del terminal (connectat al VPS):
+### 2. Configura el gateway
+
+Des del terminal del VPS:
 
 ```bash
 export PATH="$HOME/.local/bin:$PATH"
 hermes gateway setup
 ```
 
-Selecciona **Telegram** de la llista de plataformes.
-Quan et demani el **token**, enganxa el que t'ha donat el BotFather.
+L'assistent et guiarà:
+1. Selecciona **Telegram** de la llista
+2. Enganxa el **token** del BotFather
+
+---
 
 ### 3. Instal·la el servei
 
@@ -50,17 +53,24 @@ systemctl --user start hermes-gateway
 systemctl --user status hermes-gateway    # Ha de dir "active"
 ```
 
+> ⚠️ **Perquè no es mori en tancar la sessió SSH:**
+> ```bash
+> sudo loginctl enable-linger $USER
+> ```
+
+---
+
 ### 4. Pareja el bot amb tu
 
-Obre Telegram, busca el teu bot pel username (ex: `@HermesBertaBot`) i envia-li:
+Obre Telegram, busca el teu bot (ex: `@HermesBertaBot`) i envia-li:
 
 ```
 Hola!
 ```
 
-El bot et respondrà amb un **codi de parell** (ex: `VV5RXRDD`).
+El bot et respondrà amb un **codi** (ex: `VV5RXRDD`).
 
-Ara, al terminal del VPS:
+Al VPS:
 
 ```bash
 hermes pairing list
@@ -69,34 +79,41 @@ hermes pairing approve telegram VV5RXRDD
 
 *(Substitueix `VV5RXRDD` pel teu codi)*
 
+---
+
 ### 5. Prova final! 🎉
 
-Des del mòbil, envia-li al teu bot:
+Des del mòbil, envia-li:
 
 ```
 Quin temps fa?
 ```
 
-Si tot funciona, Hermes et respondrà al mòbil!
+Si tot va bé, Hermes et respondrà al mòbil! 📱
+
+---
 
 ## ✨ Què has après?
 
-- Com crear un bot de Telegram amb @BotFather
-- Com configurar el gateway d'Hermes per xatejar des del mòbil
-- Com funciona el sistema de parell (pairing) per seguretat
-- Que Hermes no viu només al terminal — pot estar al teu mòbil!
+- Crear un bot de Telegram amb @BotFather
+- Configurar el gateway d'Hermes al VPS
+- Com funciona el sistema de parell (pairing)
+- Que Hermes també viu al mòbil!
 
 ## 💡 Per anar més lluny
 
-- Prova d'enviar-li **fotos o àudios** des del mòbil
-- Demana-li que **et recordi coses** (la memòria funciona també des de Telegram)
-- Configura'l perquè **s'enviï notícies cada matí** (parla amb el profe sobre cron jobs)
+- Envia-li **fotos o àudios** des del mòbil
+- Pregunta-li coses que va aprendre a l'Activitat 04 (la memòria també funciona des de Telegram!)
+- Demana al profe com configurar **notícies automàtiques cada matí** (cron jobs)
 
 ## ❌ No funciona?
 
-- **El bot no respon:** Assegura't que el gateway està actiu: `systemctl --user status hermes-gateway`
-- **El bot diu "no autoritzat":** Has fet el pairing? Prova `hermes pairing list` i torna a aprovar
-- **Error al configurar:** Prova `hermes gateway setup` de nou
-- **Error de token:** Assegura't que el token del BotFather està ben copiat (sense espais)
-- **El gateway no s'inicia:** Reinicia'l: `systemctl --user restart hermes-gateway`
-- **No funciona res:** Aviseu el profe!
+| Problema | Solució |
+|----------|---------|
+| **El bot no respon** | `systemctl --user status hermes-gateway` — ha de dir "active" |
+| **"no autoritzat"** | Torna a fer el pairing: `hermes pairing list` + `approve` |
+| **Error al configurar** | Prova `hermes gateway setup` de nou |
+| **Error de token** | Assegura't que està ben copiat (sense espais) |
+| **El gateway no s'inicia** | `systemctl --user restart hermes-gateway` |
+| **Es mor en sortir del SSH** | Has fet `sudo loginctl enable-linger $USER`? |
+| **Res de res** | Aviseu el profe! 😅 |
