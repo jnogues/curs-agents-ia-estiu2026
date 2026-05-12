@@ -98,10 +98,12 @@ GPIO 14 ───────┤ RST                              │
 
 ```
 devboard/
-├── README.md                       ← GPIO mapping i descripció
+├── README.md                               ← GPIO mapping i descripció
 ├── schematics/
-│   └── ISB-32devBoard_Esquematic.pdf    ← Esquemàtic (EasyEDA)
+│   └── ISB-32devBoard_Esquematic.pdf            ← Esquemàtic (EasyEDA)
 └── pcb/
-    ├── ISB-32devBoard_PCB_front.webp    ← PCB cara frontal
-    └── ISB-32devBoard_PCB_back.webp     ← PCB cara posterior
+    ├── ISB-32devBoard_PCB_front.webp            ← PCB cara frontal
+    ├── ISB-32devBoard_PCB_back.webp             ← PCB cara posterior
+    ├── ISB-32devBoard_PCB_2D.webp               ← PCB vista 2D
+    └── ESP32-S3_DevKitC1_Pinout.png             ← Pinout ESP32-S3 DevKit C1
 ```
