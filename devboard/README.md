@@ -2,7 +2,7 @@
 
 > Placa de desenvolupament educativa basada en **ESP32-S3 DevKit C1 N16R8**
 >
-> **Institut Sabadell** · Curs d'Instal·lació d'Agents d'IA · Estiu 2026
+> **I2SB · Institut Indústria Sostenible de Barcelona** · Curs d'Instal·lació d'Agents d'IA · Estiu 2026
 
 ---
 
