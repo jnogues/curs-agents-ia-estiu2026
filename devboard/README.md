@@ -94,6 +94,15 @@ GPIO 14 ───────┤ RST                              │
 
 ---
 
+## 🛒 Enllaços de compra
+
+| Component | Enllaç |
+|-----------|--------|
+| **ESP32-S3 DevKit C1 N16R8** | [AliExpress](https://es.aliexpress.com/item/1005008750977454.html) |
+| **Display GC9A01 1.28"** | [Amazon](https://www.amazon.es/-/en/ARCELI-1-28-inch-resolution-monitoring-instrument/dp/B0CFXX3BMY/ref=sr_1_4) |
+
+---
+
 ## 📁 Contingut de la carpeta
 
 ```
