@@ -1,4 +1,4 @@
-# 🖥️ Activitat 06: Compra't un VPS i instal·la Hermes des de zero
+# ☁️ Activitat 00b: Instal·la Hermes en un VPS
 
 **Durada:** ~30-45 minuts
 **Dificultat:** ⭐⭐⭐ (cal saber una mica de terminal)
@@ -13,6 +13,8 @@ Tenir el teu propi Hermes Agent en un servidor al núvol, totalment teu, 24/7! �
 - Un compte bancari (per pagar el VPS)
 - Uns 4-8€ al mes
 - Saber copiar i enganxar comandes al terminal
+
+> 💡 **Ja tens Hermes instal·lat al teu PC?** Aquesta activitat és per qui vol un servidor sempre encès. Si només vols provar Hermes, ves a la [instal·lació local](../00a-instalacio-local/README.md).
 
 ---
 
@@ -51,9 +53,9 @@ En 1-2 minuts rebràs un email amb la **IP del servidor** i la **contrasenya roo
 | **Hetzner CX22** | ~4€/mes | 4 GB | Millor relació Q/P |
 | **Netcup** | ~3.50€/mes | 4 GB | Similar a Hetzner |
 | **Ionos** | ~2€/mes (6 mesos) | 1 GB | Barat per començar |
-| **Oracle Cloud Free** | 0€/mes | 1 GB | Gratis, pero registre complicat |
-| **DigitalOcean** | ~4$/mes | 512 MB | Petitet pero bon soport |
-| **AWS Lightsail** | ~3.5$/mes | 512 MB | Per usuaris avancats |
+| **Oracle Cloud Free** | 0€/mes | 1 GB | Gratis, però registre complicat |
+| **DigitalOcean** | ~4$/mes | 512 MB | Petitet però bon suport |
+| **AWS Lightsail** | ~3.5$/mes | 512 MB | Per usuaris avançats |
 
 > **Consell:** Per començar, Hetzner és el més fàcil i fiable.
 
@@ -159,47 +161,14 @@ hermes chat -q "Explica'm 3 coses que sàpigues fer"
 
 ---
 
-## Pas 6: (Opcional) Connexió amb Telegram
+## ➡️ I ara què?
 
-Per poder parlar amb Hermes des del mòbil:
-
-1. Obre Telegram i busca **@BotFather**
-2. Envia-li `/newbot` i segueix les instruccions (tria un nom i username)
-3. Guarda el **token** que et doni
-
-Al VPS:
-
-```bash
-hermes gateway setup
-```
-
-Selecciona Telegram i enganxa el token.
-
-Després:
-
-```bash
-hermes gateway install
-systemctl --user start hermes-gateway
-systemctl --user enable hermes-gateway
-```
-
-> ⚠️ **Important:** Perquè el gateway funcioni després de tancar la sessió SSH:
-> ```bash
-> sudo loginctl enable-linger root
-> ```
-
-Ara busca el teu bot a Telegram, envia-li "Hola" i fes el pairing:
-
-```bash
-hermes pairing list
-hermes pairing approve telegram <CODI>
-```
-
-**Ja tens Hermes al mòbil!** 📱
+- **Vols parlar des del mòbil?** Fes l'[Activitat 05: Telegram](../05-telegram/README.md) per connectar el bot
+- **No saps què fer al VPS?** Torna al [menú principal](../README.md)
 
 ---
 
-## 🎯 Resum: Llista de verificació
+## 🎯 Llista de verificació
 
 - [ ] VPS comprat i funcionant (Hetzner, DigitalOcean...)
 - [ ] Connectat per SSH
@@ -207,7 +176,6 @@ hermes pairing approve telegram <CODI>
 - [ ] API Key configurada (DeepSeek o Gemini)
 - [ ] Model configurat
 - [ ] Hermes respon (`hermes chat -q "Hola"`)
-- [ ] (Opcional) Bot de Telegram connectat
 
 ## 💡 Consells de seguretat
 
@@ -234,5 +202,8 @@ Si ja no el vols fer servir, recorda **cancel·lar-lo** des del panell de Hetzne
 - **`hermes: command not found`** → Has d'executar `source ~/.bashrc` o `export PATH="$HOME/.local/bin:$PATH"`
 - **Error 401 / no autoritzat** → L'API Key no és correcta. Revisa `~/.hermes/.env`
 - **Error 429 / quota exceeded** → Has fet massa peticions (Gemini gratis). Espera 1 minut o canvia a DeepSeek
-- **El bot de Telegram no respon** → El gateway no està corrent. Prova `systemctl --user status hermes-gateway`
 - **No em puc connectar per SSH** → Comprova que has posat bé la IP. Algunes VPS triguen 2-3 minuts a estar disponibles
+
+---
+
+> **I2SB · Institut Indústria Sostenible de Barcelona** · Curs d'Instal·lació d'Agents d'IA · Estiu 2026
