@@ -1,6 +1,6 @@
 ![Logo del curs](logo-curs.png)
 
-# Curs d'Instal·lació d'Agents d'IA
+# Curs d'Instal·lació d'Agents d'IA amb ESP32
 
 > **I2SB · Institut Indústria Sostenible de Barcelona** · Estiu 2026
 
