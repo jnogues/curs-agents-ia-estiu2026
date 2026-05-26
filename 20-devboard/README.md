@@ -106,7 +106,7 @@ GPIO 14 ───────┤ RST                              │
 ## 📁 Contingut de la carpeta
 
 ```
-devboard/
+20-devboard/
 ├── README.md                               ← GPIO mapping i descripció
 ├── schematics/
 │   └── ISB-32devBoard_Esquematic.pdf            ← Esquemàtic (EasyEDA)

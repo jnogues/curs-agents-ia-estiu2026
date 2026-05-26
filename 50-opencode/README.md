@@ -8,4 +8,4 @@ Perfecte per programar **ESP32** amb assistència d'IA!
 |---|------|---------------|--------|
 | 01 | [Installa i usa OpenCode per programar ESP32](./01-installa-opencode-esp32/README.md) | Programar ESP32 amb IA, compilar i pujar amb Arduino IDE | 30 min |
 
-> **Relació amb el curs:** Els exercicis d'ESP32 els trobareu a [../code/](../code/).
+> **Relació amb el curs:** Els exercicis d'ESP32 els trobareu a [../30-code/](../30-code/).

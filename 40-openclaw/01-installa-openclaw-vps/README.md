@@ -10,7 +10,7 @@ Tenir el teu propi OpenClaw Agent en un servidor al núvol, funcionant 24/7! �
 
 ## Què necessites?
 
-- Un VPS (consulta l'[Activitat 06 d'Hermes](../../hermes/06-compra-un-vps/README.md) per saber com comprar-ne un)
+- Un VPS (consulta l'[Activitat 00b d'Hermes](../../10-hermes/00-installacio/00b-instalacio-vps/README.md) per saber com comprar-ne un)
 - Saber copiar i enganxar comandes al terminal
 - Una API key d'Anthropic (Claude), OpenAI (GPT) o Google (Gemini)
 

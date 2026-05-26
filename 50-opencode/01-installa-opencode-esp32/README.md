@@ -131,14 +131,14 @@ Cada comanda generarà un fitxer `.ino` que podràs obrir amb l'Arduino IDE.
 
 ## Pas 5: Revisa i millora codi existent
 
-Al repositori del curs tens exemples a la carpeta `code/`. Pots usar OpenCode per revisar-los o millorar-los:
+Al repositori del curs tens exemples a la carpeta `30-code/`. Pots usar OpenCode per revisar-los o millorar-los:
 
 ```bash
 # Revisar un exercici
-opencode run "Revisa aquest codi ESP32 i suggereix millores" -f code/Exercici-01/Exercici-01.ino
+opencode run "Revisa aquest codi ESP32 i suggereix millores" -f 30-code/Exercici-01/Exercici-01.ino
 
 # Afegir una funcionalitat
-opencode run "Afegeix un mode de baix consum (deep sleep) a aquest codi" -f code/Exercici-01/Exercici-01.ino
+opencode run "Afegeix un mode de baix consum (deep sleep) a aquest codi" -f 30-code/Exercici-01/Exercici-01.ino
 ```
 
 ---
@@ -169,7 +169,7 @@ Ves al directori del repositori del curs i prova:
 
 ```bash
 # 1. Ves als exercicis
-cd code/
+cd 30-code/
 
 # 2. Demana a OpenCode que analitzi l'Exercici 1
 opencode run "Explica'm que fa aquest codi pas a pas" -f Exercici-01/Exercici-01.ino
