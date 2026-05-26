@@ -18,6 +18,13 @@ Per tenir un Hermes **24/7 al núvol**, accessible des de qualsevol lloc.
 > ✅ El teu agent sempre disponible
 > ✅ Cost ~4€/mes
 
+## 🐳 [00c — Docker + Serveis al VPS](./00c-docker-serveis-vps/README.md)
+
+Per desplegar un stack complet de serveis (MQTT, InfluxDB, Grafana, Node-RED, Dockge) al teu VPS amb un sol prompt per a Hermes.
+> ✅ Després d'haver instal·lat Hermes al VPS (00b)
+> ✅ Dockge per gestionar contenidors des del navegador
+> ✅ Stack IoT complet: sensors → MQTT → InfluxDB → Grafana
+
 ---
 
 > 💡 **Recomanació:** Si és la primera vegada, comença per la [instal·lació local](./00a-instalacio-local/README.md). Passaràs a VPS més endavant quan necessitis Telegram.
@@ -25,4 +32,5 @@ Per tenir un Hermes **24/7 al núvol**, accessible des de qualsevol lloc.
 ---
 
 **[➡️ Comença per Instal·lació local](./00a-instalacio-local/README.md)** ·
-**[➡️ O salta directament a VPS](./00b-instalacio-vps/README.md)**
+**[➡️ O salta directament a VPS](./00b-instalacio-vps/README.md)** ·
+**[➡️ Després del VPS, desplega serveis](./00c-docker-serveis-vps/README.md)**

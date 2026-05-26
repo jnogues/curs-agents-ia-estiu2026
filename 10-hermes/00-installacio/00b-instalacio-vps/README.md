@@ -163,6 +163,7 @@ hermes chat -q "Explica'm 3 coses que sàpigues fer"
 
 ## ➡️ I ara què?
 
+- **Vols desplegar serveis al teu VPS?** Fes la [Activitat 00c: Docker + Serveis al VPS](../00c-docker-serveis-vps/README.md) per tenir MQTT, InfluxDB, Grafana i Node-RED
 - **Vols parlar des del mòbil?** Fes l'[Activitat 05: Telegram](../05-telegram/README.md) per connectar el bot
 - **No saps què fer al VPS?** Torna al [menú principal](../README.md)
 
