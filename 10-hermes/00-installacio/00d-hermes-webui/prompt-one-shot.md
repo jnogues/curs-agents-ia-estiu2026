@@ -1,8 +1,8 @@
-# 🌐 One-shot: Hermes WebUI amb DuckDNS + Caddy + HTTPS
+# 🌐 One-shot: Hermes WebUI amb DuckDNS + Caddy + HTTPS (v2)
 
 > **Com usar-lo:**
 > 1. Ves a duckdns.org, registra't i crea un subdomini. Copia el token.
-> 2. **Substitueix** `<SUBDOMINI>`, `<TOKEN>` i `<PASSWORD>` aquí al prompt (són 3 llocs).
+> 2. **Substitueix** els 3 placeholders marcats com `REPLACE_*` aquí al prompt.
 > 3. Connecta't per SSH al VPS, obre `hermes chat`, i enganxa **tot el text** de cop.
 >
 > **Avís:** El primer cop triga uns minuts perquè construeix la imatge Docker des de zero. Deixa'l fer!
@@ -11,9 +11,9 @@
 
 **Placeholders que has de substituir ABANS d'enganxar:**
 
-- `<SUBDOMINI>` → El nom que has posat a DuckDNS (ex: `joanmaria`)
-- `<TOKEN>` → El token de DuckDNS que has copiat
-- `<PASSWORD>` → Una contrasenya per al teu Hermes WebUI (la que vulguis)
+- `REPLACE_SUBDOMINI` → El nom que has posat a DuckDNS (ex: `joanmaria`)
+- `REPLACE_TOKEN` → El token de DuckDNS que has copiat
+- `REPLACE_PASSWORD` → Una contrasenya per al teu Hermes WebUI (la que vulguis)
 
 ---
 
@@ -35,7 +35,7 @@ for port in 80 443 8787; do
 done
 
 # Usuari
-echo "✅ Usuari: $(whoami) (UID:$(id -u))"
+echo "✅ Usuari: $(whoami) (UID:$(id -u), GID:$(id -g))"
 echo "✅ Home: $HOME"
 ```
 
@@ -43,7 +43,7 @@ echo "✅ Home: $HOME"
 
 ## Fase 1 — DuckDNS (mantenidor de domini)
 
-El container DuckDNS s'encarregarà de mantenir `SUBDOMINI.duckdns.org` apuntant a la IP del teu VPS.
+El container DuckDNS s'encarregarà de mantenir `REPLACE_SUBDOMINI.duckdns.org` apuntant a la IP del teu VPS.
 
 ```bash
 mkdir -p ~/duckdns
@@ -60,8 +60,8 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Madrid
-      - SUBDOMAINS=<SUBDOMINI>
-      - TOKEN=<TOKEN>
+      - SUBDOMAINS=REPLACE_SUBDOMINI
+      - TOKEN=REPLACE_TOKEN
     restart: unless-stopped
 ```
 
@@ -78,6 +78,23 @@ sg docker -c "docker logs duckdns 2>&1 | tail -3"
 
 > ✅ DuckDNS ha d'escriure alguna cosa com `OK` o la IP del VPS.
 
+**IMPORTANT:** Abans de passar a la Fase 2, comprova que el domini resol correctament:
+
+```bash
+# Espera fins a 60 segons que DuckDNS propagui la IP
+for i in $(seq 1 12); do
+  IP=$(dig +short REPLACE_SUBDOMINI.duckdns.org A 2>/dev/null || echo "")
+  if [ -n "$IP" ] && [ "$IP" != "0.0.0.0" ]; then
+    echo "✅ DuckDNS resol a: $IP"
+    break
+  fi
+  echo "⏳ Esperant que DuckDNS propagui... ($i/12)"
+  sleep 5
+done
+```
+
+> ✅ Si mostra una IP pública (no 0.0.0.0), pots passar a la Fase 2.
+
 ---
 
 ## Fase 2 — Caddy (servidor web amb HTTPS automàtic)
@@ -91,7 +108,7 @@ mkdir -p ~/caddy/data
 Crea `~/caddy/Caddyfile`:
 
 ```
-hermes.<SUBDOMINI>.duckdns.org {
+hermes.REPLACE_SUBDOMINI.duckdns.org {
     reverse_proxy 172.17.0.1:8787
 }
 ```
@@ -158,7 +175,7 @@ sg docker -c "docker images hermes-webui --format '{{.Repository}}:{{.Tag}} {{.S
 ## Fase 4 — Desplegar el Hermes WebUI
 
 ```bash
-mkdir -p ~/hermes-webui
+mkdir -p ~/hermes-webui ~/workspace
 ```
 
 Crea `~/hermes-webui/docker-compose.yml`:
@@ -174,12 +191,13 @@ services:
       - /home/$USER/.hermes:/home/hermeswebui/.hermes
       - /home/$USER/workspace:/workspace
     environment:
-      - WANTED_UID=$(id -u)
-      - WANTED_GID=$(id -g)
+      - WANTED_UID=1000
+      - WANTED_GID=1000
       - HERMES_WEBUI_HOST=0.0.0.0
       - HERMES_WEBUI_PORT=8787
       - HERMES_WEBUI_STATE_DIR=/home/hermeswebui/.hermes/webui
-      - HERMES_WEBUI_PASSWORD=<PASSWORD>
+      - HERMES_WEBUI_PASSWORD=REPLACE_PASSWORD
+      - HERMES_SKIP_CHMOD=1
     restart: unless-stopped
 ```
 
@@ -190,7 +208,7 @@ cd ~/hermes-webui && sg docker -c "docker compose up -d"
 Verificació:
 
 ```bash
-sleep 5
+sleep 10
 sg docker -c "docker inspect hermes-webui --format '{{.State.Health.Status}}'"
 curl -s -o /dev/null -w "✅ HTTP: %{http_code}\n" --max-time 5 http://localhost:8787/health
 ```
@@ -208,14 +226,14 @@ echo "  ✅ INSTAL·LACIÓ COMPLETADA!"
 echo "═══════════════════════════════════════"
 echo ""
 echo "🌐 Obre al navegador:"
-echo "   https://hermes.<SUBDOMINI>.duckdns.org"
+echo "   https://hermes.REPLACE_SUBDOMINI.duckdns.org"
 echo ""
 echo "🔑 Contrasenya: la que has posat al prompt"
 echo ""
 
 # Prova HTTPS
-curl -s -o /dev/null -w "📡 HTTPS: %{http_code} (hermes.<SUBDOMINI>.duckdns.org)\n" \
-  --max-time 10 https://hermes.<SUBDOMINI>.duckdns.org 2>&1 || \
+curl -s -o /dev/null -w "📡 HTTPS: %{http_code} (hermes.REPLACE_SUBDOMINI.duckdns.org)\n" \
+  --max-time 10 https://hermes.REPLACE_SUBDOMINI.duckdns.org 2>&1 || \
   echo "📡 HTTPS: encara no accessible (pot trigar 1-2 minuts que Caddy obteni el certificat)"
 ```
 
@@ -223,9 +241,9 @@ Mostra'm la taula final:
 
 | Servei | Container | Port | Accés |
 |--------|-----------|:----:|-------|
-| 🦆 DuckDNS | duckdns | — | Manté `SUBDOMINI.duckdns.org` actualitzat |
+| 🦆 DuckDNS | duckdns | — | Manté `REPLACE_SUBDOMINI.duckdns.org` actualitzat |
 | 🐇 Caddy | caddy | 80 / 443 | Proxy invers + HTTPS automàtic |
-| 🌐 Hermes WebUI | hermes-webui | 8787 | `https://hermes.SUBDOMINI.duckdns.org` |
+| 🌐 Hermes WebUI | hermes-webui | 8787 | `https://hermes.REPLACE_SUBDOMINI.duckdns.org` |
 
 > **Nota:** Si Caddy no ha pogut obtenir el certificat en 2 minuts, prova `sg docker -c "docker logs caddy"` per veure l'estat. Normalment funciona sol als pocs minuts.
 
