@@ -25,6 +25,13 @@ Per desplegar un stack complet de serveis (MQTT, InfluxDB, Grafana, Node-RED, Do
 > ✅ Dockge per gestionar contenidors des del navegador
 > ✅ Stack IoT complet: sensors → MQTT → InfluxDB → Grafana
 
+## 🌐 [00d — Hermes WebUI (Interfície gràfica)](./00d-hermes-webui/README.md)
+
+Per donar-li una interfície web al teu Hermes amb HTTPS, DuckDNS i Caddy.
+> ✅ Després d'haver instal·lat Docker (00c o alternativament)
+> ✅ Accés des del navegador: `https://hermes.elteudomini.duckdns.org`
+> ✅ Certificats HTTPS automàtics amb Let's Encrypt
+
 ---
 
 > 💡 **Recomanació:** Si és la primera vegada, comença per la [instal·lació local](./00a-instalacio-local/README.md). Passaràs a VPS més endavant quan necessitis Telegram.
@@ -33,4 +40,5 @@ Per desplegar un stack complet de serveis (MQTT, InfluxDB, Grafana, Node-RED, Do
 
 **[➡️ Comença per Instal·lació local](./00a-instalacio-local/README.md)** ·
 **[➡️ O salta directament a VPS](./00b-instalacio-vps/README.md)** ·
-**[➡️ Després del VPS, desplega serveis](./00c-docker-serveis-vps/README.md)**
+**[➡️ Després del VPS, desplega serveis](./00c-docker-serveis-vps/README.md)** ·
+**[➡️ I si vols WebUI, aquí tens](./00d-hermes-webui/README.md)**
