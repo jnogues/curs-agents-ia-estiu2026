@@ -1,0 +1,1 @@
+/home/jnogues/claude/esp-now/shared/message.h
