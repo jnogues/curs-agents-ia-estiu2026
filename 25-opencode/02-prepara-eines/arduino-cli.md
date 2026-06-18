@@ -26,6 +26,11 @@ A Windows:
    https://github.com/arduino/arduino-cli/releases/latest
    (el fitxer acabat en Windows_64bit.zip), descomprimeix-lo i posa'l a C:\arduino-cli\ i afegeix-lo al PATH.
 
+3. Instal·la els drivers USB del xip sèrie de la teva placa (si Windows no els reconeix):
+   - NodeMCU V2 (ESP8266): xip **CH340** — descarrega des de https://www.wch.cn/download/CH341SER_EXE.html
+   - ISB-32devBoard (ESP32-S3): xip **CP2102** — normalment Windows Update els instal·la sol, però si no, descarrega des de https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers
+   Si no saps quin xip tens, mira la serigrafia de la placa al costat del connector USB.
+
 Un cop instal·lat (ambdós sistemes):
 
 3. Configura Arduino CLI:
