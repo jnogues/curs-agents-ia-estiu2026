@@ -22,6 +22,7 @@ Abans de programar plaques, cal tenir les eines de compilació:
 | [Instal·lar ESP-IDF](./02-prepara-eines/esp-idf.md) | Framework Espressif per programar ESP32 a baix nivell |
 | [Test d'entorn](./02-prepara-eines/test-entorn.md) | Verifica que tot està correcte (OpenCode, CLI, cores, API key, placa) ✅ |
 | [Resolució de problemes](./02-prepara-eines/troubleshooting.md) | Errors comuns: permisos, ports, drivers, compilació 🛠️ |
+| [Mosquitto clients](./02-prepara-eines/mosquitto-clients.md) | Eines MQTT per terminal (pub/sub) des de Windows/Linux 📡 |
 
 ## ③ Programar ESP32 amb Arduino
 
