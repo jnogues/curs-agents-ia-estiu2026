@@ -3,7 +3,7 @@
 Copia i enganxa això a OpenCode:
 
 ```
-Vull instal·lar Arduino CLI al meu ordinador i configurar-lo per programar ESP32.
+Vull instal·lar Arduino CLI al meu ordinador i configurar-lo per programar ESP32 i ESP8266.
 
 Primer detecta si el meu sistema és Windows o Ubuntu/Linux.
 
@@ -31,19 +31,27 @@ Un cop instal·lat (ambdós sistemes):
 3. Configura Arduino CLI:
    arduino-cli config init
 
-4. Actualitza l'índex de plaques:
+4. Afegeix les URLs dels board managers de tercers (per ESP32 i ESP8266):
+   arduino-cli config add board_manager.additional_urls https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+   arduino-cli config add board_manager.additional_urls https://arduino.esp8266.com/stable/package_esp8266com_index.json
+
+5. Actualitza l'índex de plaques:
    arduino-cli core update-index
 
-5. Instal·la el suport per ESP32:
+6. Instal·la el suport per ESP32:
    arduino-cli core install esp32:esp32
+
+7. Instal·la el suport per ESP8266:
+   arduino-cli core install esp8266:esp8266
 
 Verificació final:
 
-6. Confirma que tot funciona:
+8. Confirma que tot funciona:
    arduino-cli version
    arduino-cli core list
+   (Han d'aparèixer esp32:esp32 i esp8266:esp8266 com a instal·lats)
 
-Si algun pas falla, explica'm l'error i intenta una alternativa. Al final, mostra'm un resum de què s'ha instal·lat i com provar-ho amb un blink.
+Si algun pas falla, explica'm l'error i intenta una alternativa. Al final, mostra'm un resum de què s'ha instal·lat i com provar-ho amb un blink per a cada placa.
 ```
 
 > **Versió preliminar** — pendent de reorganitzar amb la resta de la carpeta 25.
