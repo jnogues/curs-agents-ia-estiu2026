@@ -14,10 +14,12 @@ Aprèn a instal·lar i configurar agents d'IA: **Hermes Agent**, **OpenClaw** i 
 |:-------:|-----------|
 | [📦 **10-hermes/**](10-hermes/) | 🧿 Hermes Agent — instal·lació, configuració i ús |
 | [🖥️ **20-devboard/**](20-devboard/) | 🧩 Documentació de la placa ISB-32devBoard |
-| [💻 **30-code/**](30-code/) | 📝 Exercicis de programació ESP32 |
+| [⚡ **25-opencode/**](25-opencode/) | 🚀 Programació d'ESP32/ESP8266 amb IA |
+| [💻 **30-code/**](30-code/) | 📝 Exercicis de programació ESP32 (Arduino) |
+| [🐍 **35-micropython-esp8266/**](35-micropython-esp8266/) | 🔧 MicroPython per NodeMCU ESP8266 |
 | [🤖 **40-openclaw/**](40-openclaw/) | 🔧 OpenClaw — agent autònom al VPS |
-| [⚡ **25-opencode/**](25-opencode/) | 🚀 Programació d'ESP32 amb IA |
 | [🔥 **60-avancat/**](60-avancat/) | ⚡ Claude Code + ESP-IDF (mòdul avançat) |
+| [📡 **70-esp-now/**](70-esp-now/) | 📶 ESP-NOW ↔ MQTT Gateway |
 
 > 🧿 La [Cheat Sheet d'Hermes](10-hermes/cheat-sheet.md) és la referència ràpida de comandaments.
 
