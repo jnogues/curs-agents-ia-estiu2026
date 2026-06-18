@@ -3,7 +3,7 @@
 Copia i enganxa això a OpenCode:
 
 ```
-Genera un sketch d'Arduino per a ESP8266 (NodeMCU) que:
+Genera un sketch d'Arduino per a ESP8266 (NodeMCU V2) que:
 
 1. Es connecti a una xarxa WiFi
 2. Faci una petició HTTP GET a http://example.com
@@ -13,4 +13,6 @@ Fes que el SSID i password siguin variables editables al principi del codi.
 Desa'l com a wifi-test.ino, compila'l i puja'l al port que detectis.
 
 FQBN: esp8266:esp8266:nodemcuv2
+
+💡 Pinout de referència: hardware.md
 ```
