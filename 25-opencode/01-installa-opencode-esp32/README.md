@@ -122,7 +122,7 @@ opencode run "Genera un sketch per ESP32 que llegeixi un sensor DHT11 al GPIO4 i
 ### Exemple 3: Connectar-se a WiFi
 
 ```bash
-opencode run "Genera un sketch per ESP32 que es connecti a WiFi (SSID: 'ElMeuWifi', password: '12345678') i faci una peticio HTTP GET a example.com. Desa'l a wifi-test.ino"
+opencode run "Genera un sketch per ESP32 que es connecti a WiFi (SSID: 'ElMeuWifi', password: '12345678') i faci una petició HTTP GET a example.com. Desa'l a wifi-test.ino"
 ```
 
 Cada comanda generarà un fitxer `.ino` que podràs obrir amb l'Arduino IDE.
@@ -177,8 +177,8 @@ opencode run "Explica'm que fa aquest codi pas a pas" -f Exercici-01/Exercici-01
 # 3. Demana una millora
 opencode run "Afegeix un segon LED al GPIO5 que s'encengui quan el primer s'apaga" -f Exercici-01/Exercici-01.ino
 
-# 4. Desa la versio millorada
-opencode run "Desa la versio millorada a Exercici-01/Exercici-01-millorat.ino"
+# 4. Desa la versió millorada
+opencode run "Desa la versió millorada a Exercici-01/Exercici-01-millorat.ino"
 ```
 
 Obre l'Arduino IDE, carrega el fitxer millorat, selecciona la placa i el port, i puja'l! 💡
