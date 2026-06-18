@@ -221,3 +221,57 @@ Obre l'Arduino IDE, carrega el fitxer millorat, selecciona la placa i el port, i
 | **Error de compilació** | Assegura't que tens la placa ESP32 seleccionada correctament |
 | **Error a l'upload** | Mantén premut el botó BOOT de l'ESP32 mentre puja |
 | **OpenCode no entén d'ESP32** | Sigues explícit: "per a ESP32, amb Arduino framework" |
+| **Error de permisos npm a Windows** | Obre PowerShell o cmd **com a administrador** i prova `npm install -g opencode-ai@latest` de nou |
+
+---
+
+## 🪟 Notes per a Windows (x64)
+
+OpenCode funciona perfectament a Windows x64. Aquí tens les diferències principals:
+
+### Instal·lació
+
+```powershell
+# Obre PowerShell (o cmd) i executa:
+npm install -g opencode-ai@latest
+```
+
+Si dona error de permisos, obre el terminal **com a administrador**.
+
+### Configurar l'API key
+
+A **PowerShell**:
+```powershell
+$env:OPENROUTER_API_KEY="sk-or-EL_TEU_TOKEN"
+```
+
+A **cmd**:
+```cmd
+set OPENROUTER_API_KEY=sk-or-EL_TEU_TOKEN
+```
+
+> Per fer-ho permanent a PowerShell: afegeix `$env:OPENROUTER_API_KEY="sk-or-..."` al teu **`$PROFILE`** (`notepad $PROFILE`). A cmd: Variables d'Entorn del Sistema (sistema → propietats avançades).
+
+### Rutes de fitxers
+
+PowerShell accepta barres `/` normals (com a Linux), així que les comandes de la guia funcionen tal qual:
+
+```powershell
+opencode run "Revisa aquest codi" -f 30-code/Exercici-01/Exercici-01.ino
+```
+
+### Port USB
+
+A Windows, l'ESP32 es connecta a un port **COM** (no `/dev/ttyUSB0`). Obre l'Arduino IDE i a **Tools → Port** tria el que aparegui (COM3, COM4...).
+
+### Alias permanent
+
+A PowerShell, afegeix això al teu `$PROFILE`:
+```powershell
+function opencode { & 'opencode' '--model', 'openrouter/deepseek/deepseek-chat' @args }
+```
+
+A cmd, crea un fitxer `opencode.cmd` al PATH:
+```cmd
+@opencode --model openrouter/deepseek/deepseek-chat %*
+```
