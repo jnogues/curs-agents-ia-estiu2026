@@ -16,7 +16,7 @@ Aprèn a instal·lar i configurar agents d'IA: **Hermes Agent**, **OpenClaw** i 
 | [🖥️ **20-devboard/**](20-devboard/) | 🧩 Documentació de la placa ISB-32devBoard |
 | [💻 **30-code/**](30-code/) | 📝 Exercicis de programació ESP32 |
 | [🤖 **40-openclaw/**](40-openclaw/) | 🔧 OpenClaw — agent autònom al VPS |
-| [⚡ **50-opencode/**](50-opencode/) | 🚀 Programació d'ESP32 amb IA |
+| [⚡ **25-opencode/**](25-opencode/) | 🚀 Programació d'ESP32 amb IA |
 | [🔥 **60-avancat/**](60-avancat/) | ⚡ Claude Code + ESP-IDF (mòdul avançat) |
 
 > 🧿 La [Cheat Sheet d'Hermes](10-hermes/cheat-sheet.md) és la referència ràpida de comandaments.

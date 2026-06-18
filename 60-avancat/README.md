@@ -30,7 +30,7 @@ Per què servirà Claude Code aquí? Perquè l'ESP-IDF és _massiu_ — centenar
 | 07 | I2C / SPI | Comunicació amb sensors i displays |
 | 08 | Deep Sleep | Mode de baix consum per a IoT |
 
-> ⚠️ **Prerequisits:** Haver completat el [Mòdul 50 (OpenCode)](../50-opencode/README.md) o tenir experiència prèvia programant ESP32.
+> ⚠️ **Prerequisits:** Haver completat el [Mòdul 25 (OpenCode)](../25-opencode/README.md) o tenir experiència prèvia programant ESP32.
 >
 > 💡 **Nota:** Aquest mòdul està pensat per a alumnes amb ganes de picar pedra i entendre l'ESP32 a fons.
 
