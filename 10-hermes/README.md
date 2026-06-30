@@ -6,6 +6,8 @@ Benvingut/da al curs d'Hermes Agent! Aquí trobaràs les activitats per aprendre
 |---|-----------|---------------|--------|
 | 00a | [Instal·lació local](./00-installacio/00a-instalacio-local/README.md) | Instal·lar Hermes al teu PC | 10 min |
 | 00b | [Instal·lació en VPS](./00-installacio/00b-instalacio-vps/README.md) | Tenir Hermes al núvol 24/7 | 30-45 min |
+| 00c | [Docker + Serveis al VPS](./00-installacio/00c-docker-serveis-vps/README.md) | Desplegar Docker, MQTT, InfluxDB, Grafana i Node-RED | 20-30 min |
+| 00d | [Hermes WebUI](./00-installacio/00d-hermes-webui/README.md) | Interfície gràfica web amb HTTPS per a Hermes | 15-20 min |
 | 01 | [Personalitza el teu agent](./01-personalitza-el-teu-agent/README.md) | Posar nom i personalitat al teu Hermes | 5 min |
 | 02 | [Primera conversa](./02-primera-conversa/README.md) | Xatejar i veure les capacitats bàsiques | 10 min |
 | 03 | [Cerca web](./03-cerca-web/README.md) | Que Hermes busqui informació a Internet | 10 min |
@@ -13,5 +15,5 @@ Benvingut/da al curs d'Hermes Agent! Aquí trobaràs les activitats per aprendre
 | 05 | [Telegram](./05-telegram/README.md) | Parlar amb Hermes des del mòbil | 15 min |
 | 🧿 | [Cheat Sheet](./cheat-sheet.md) | Xuleta de comandaments ràpids | — |
 
-> 💡 **Recomanació:** Comença per la [00a: Instal·lació local](./00-installacio/00a-instalacio-local/README.md) i després fes les activitats en ordre (01→05). Si ja tens un VPS, pots començar per la [00b](./00-installacio/00b-instalacio-vps/README.md).
+> 💡 **Recomanació:** Comença per la [00a: Instal·lació local](./00-installacio/00a-instalacio-local/README.md) i després fes les activitats en ordre (01→05). Si ja tens un VPS, pots començar per la [00b](./00-installacio/00b-instalacio-vps/README.md) i seguir amb [00c (Docker + serveis)](./00-installacio/00c-docker-serveis-vps/README.md) i [00d (WebUI)](./00-installacio/00d-hermes-webui/README.md).
 > 🧿 La [Cheat Sheet](./cheat-sheet.md) és la referència ràpida de comandaments.
