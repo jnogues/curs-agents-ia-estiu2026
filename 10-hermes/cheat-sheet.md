@@ -24,10 +24,14 @@ hermes --help           # Tots els comandaments
 
 | Comandament | Què fa |
 |---|---|
-| `hermes` | Xat interactiu |
+| `hermes` | **CLI clàssic** (xat interactiu, sense panells) |
+| `hermes --tui` | **TUI gràfic** (interfície amb panells: chat + debug + historial) |
 | `hermes -s skill_nom` | Carrega una skill en iniciar |
 | `hermes --continue` | Reprèn la darrera sessió |
 | `hermes -p perfil` | Usa un perfil concret |
+
+> ⚠️ Per defecte `hermes` obre el **CLI**. Usa `hermes --tui` per a la interfície amb panells.
+> Per fer-ho permanent: afegeix `display.interface: tui` al `~/.hermes/config.yaml` o posa `HERMES_TUI=1` al teu shell profile.
 
 ### Slash commands (dins del xat)
 
