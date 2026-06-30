@@ -22,7 +22,7 @@ Tenir el teu propi Hermes Agent en un servidor al núvol, totalment teu, 24/7! �
 
 Un VPS (Virtual Private Server) és un ordinador sempre encès al núvol. La millor opció qualitat-preu:
 
-### 🏆 Recomanació: Hetzner CX22 (~4€/mes)
+### 🏆 Recomanació: Hetzner CX23 (~4€/mes)
 
 | Característica | Valor |
 |---------------|-------|
@@ -39,8 +39,8 @@ Un VPS (Virtual Private Server) és un ordinador sempre encès al núvol. La mil
 3. Un cop dins, ves a **Projects** → **Create Project**
 4. Dins del projecte, **Create Server**:
    - **Location:** Nuremberg o Helsinki (el més barat)
-   - **Image:** Ubuntu 24.04
-   - **Type:** CX22
+   - **Image:** Ubuntu 26.04 LTS
+   - **Type:** CX23
    - **SSH Keys:** Opcional (després pots fer servir contrasenya)
 5. Clica **Create & Buy**
 
@@ -50,7 +50,7 @@ En 1-2 minuts rebràs un email amb la **IP del servidor** i la **contrasenya roo
 
 | Proveïdor | Preu mínim | RAM | Bo |
 |-----------|:----------:|:---:|:---|
-| **Hetzner CX22** | ~4€/mes | 4 GB | Millor relació Q/P |
+| **Hetzner CX23** | ~4€/mes | 4 GB | Millor relació Q/P |
 | **Netcup** | ~3.50€/mes | 4 GB | Similar a Hetzner |
 | **Ionos** | ~2€/mes (6 mesos) | 1 GB | Barat per començar |
 | **Oracle Cloud Free** | 0€/mes | 1 GB | Gratis, però registre complicat |
