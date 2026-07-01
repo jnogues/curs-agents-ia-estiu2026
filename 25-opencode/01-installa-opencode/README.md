@@ -102,40 +102,86 @@ Si tot funciona, veuràs la resposta! 🎉
 
 ## Pas 4: Programa l'ESP32 amb OpenCode
 
-Ara ve la part divertida! OpenCode pot generar codi per a ESP32.
+Ara ve la part divertida! El flux de treball serà:
 
-### Exemple 1: Blink (el clàssic)
+1. **Crea una carpeta** per al projecte (ex: `Exercici1`)
+2. **Obre el terminal/PowerShell** dins d'aquesta carpeta
+3. **Obre OpenCode en mode TUI** i escriu-li els prompts
 
-```bash
-opencode run "Genera un sketch d'Arduino per a ESP32 que faci parpellejar un LED al GPIO2 cada segon. Desa'l a blink.ino"
-```
+### Pràctica: Blink (el clàssic)
 
-### Exemple 2: Llegir un sensor
-
-```bash
-opencode run "Genera un sketch per ESP32 que llegeixi un sensor DHT11 al GPIO4 i mostri temperatura i humitat pel port serie. Desa'l a dht11.ino"
-```
-
-### Exemple 3: Connectar-se a WiFi
+Crea una carpeta i obre el TUI:
 
 ```bash
-opencode run "Genera un sketch per ESP32 que es connecti a WiFi (SSID: 'ElMeuWifi', password: '12345678') i faci una petició HTTP GET a example.com. Desa'l a wifi-test.ino"
+mkdir Exercici1_Blink
+cd Exercici1_Blink
+opencode
 ```
 
-Cada comanda generarà un fitxer `.ino` que podràs obrir amb l'Arduino IDE.
+Dins del TUI d'OpenCode, escriu aquest prompt:
+
+```
+Genera un sketch d'Arduino per a ESP32 que faci parpellejar un LED al GPIO2 cada segon. Desa'l a blink.ino
+```
+
+Quan acabi, surt del TUI amb **`Ctrl+C`**.
+
+Repeteix el mateix flux per a altres projectes:
+
+### Pràctica: Sensor DHT11
+
+```bash
+mkdir Exercici2_DHT11
+cd Exercici2_DHT11
+opencode
+```
+
+Dins del TUI:
+
+```
+Genera un sketch per ESP32 que llegeixi un sensor DHT11 al GPIO4 i mostri temperatura i humitat pel port sèrie. Desa'l a dht11.ino
+```
+
+### Pràctica: Connexió WiFi
+
+```bash
+mkdir Exercici3_WiFi
+cd Exercici3_WiFi
+opencode
+```
+
+Dins del TUI:
+
+```
+Genera un sketch per ESP32 que es connecti a WiFi (SSID: 'ElMeuWifi', password: '12345678') i faci una petició HTTP GET a example.com. Desa'l a wifi-test.ino
+```
+
+Cada projecte tindrà la seva carpeta amb el fitxer `.ino` generat.
 
 ---
 
 ## Pas 5: Revisa i millora codi existent
 
-Al repositori del curs tens exemples a la carpeta `30-code/`. Pots usar OpenCode per revisar-los o millorar-los:
+Al repositori del curs tens exemples a la carpeta `30-code/`. Per analitzar-los amb OpenCode:
 
 ```bash
-# Revisar un exercici
-opencode run "Revisa aquest codi ESP32 i suggereix millores" -f 30-code/Exercici-01/Exercici-01.ino
+# Ves a la carpeta de l'exercici
+cd 30-code/Exercici-01/
 
-# Afegir una funcionalitat
-opencode run "Afegeix un mode de baix consum (deep sleep) a aquest codi" -f 30-code/Exercici-01/Exercici-01.ino
+# Obre el TUI d'OpenCode
+opencode
+```
+
+Dins del TUI, pots demanar:
+
+```
+Revisa aquest codi ESP32 i suggereix-me millores
+```
+
+O demanar-li que hi afegeixi funcionalitat:
+
+```
+Afegeix un mode de baix consum (deep sleep) a aquest codi
 ```
 
 ---
@@ -162,23 +208,28 @@ Si tot va bé, veuràs el codi compilant-se i pujant-se a l'ESP32! 🎉
 
 ## Exemple complet pas a pas
 
-Ves al directori del repositori del curs i prova:
-
 ```bash
-# 1. Ves als exercicis
-cd 30-code/
-
-# 2. Demana a OpenCode que analitzi l'Exercici 1
-opencode run "Explica'm que fa aquest codi pas a pas" -f Exercici-01/Exercici-01.ino
-
-# 3. Demana una millora
-opencode run "Afegeix un segon LED al GPIO5 que s'encengui quan el primer s'apaga" -f Exercici-01/Exercici-01.ino
-
-# 4. Desa la versió millorada
-opencode run "Desa la versió millorada a Exercici-01/Exercici-01-millorat.ino"
+# 1. Crea una carpeta i obre el TUI d'OpenCode
+mkdir ElMeuProjecte
+cd ElMeuProjecte
+opencode
 ```
 
-Obre l'Arduino IDE, carrega el fitxer millorat, selecciona la placa i el port, i puja'l! 💡
+# 2. Dins del TUI, demana que analitzi un codi existent:
+
+```
+Agafa el codi de 30-code/Exercici-01/Exercici-01.ino i explica'm què fa pas a pas
+```
+
+# 3. Demana una millora:
+
+```
+Afegeix un segon LED al GPIO5 que s'encengui quan el primer s'apaga. Desa la versió millorada a exercici1-millorat.ino
+```
+
+# 4. Surt del TUI amb Ctrl+C
+
+Obre l'Arduino IDE, carrega el fitxer `.ino`, selecciona la placa i el port, i puja'l! 💡
 
 ---
 
