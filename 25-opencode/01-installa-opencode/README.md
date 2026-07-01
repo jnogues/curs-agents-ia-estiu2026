@@ -15,7 +15,7 @@ Instal·lar OpenCode al teu ordinador i usar-lo per programar ESP32 amb assistè
 - **Un ordinador** (Windows, macOS o Linux)
 - **Cable USB** per connectar l'ESP32
 - **Arduino IDE** instal·lat (amb suport per ESP32)
-- **Una API key** — la que millor et vagi (DeepSeek, OpenRouter, Anthropic...)
+- **Una API key** — la de DeepSeek que ja teniu del curs
 - Saber copiar i enganxar comandes al terminal
 
 ---
@@ -60,69 +60,33 @@ opencode --version
 
 ---
 
-## Pas 2: Configura una API key
+## Pas 2: Configura l'API key de DeepSeek
 
-OpenCode necessita un model d'IA. La millor opció per al curs:
+Agafa la vostra **API key de DeepSeek** (la del curs). Configureu-la al terminal (segons el vostre sistema):
 
-### ⭐ Opció A: DeepSeek via OpenRouter (Recomanat)
-
-DeepSeek és el model més barat i el que fem servir al curs. OpenCode l'usa a través d'OpenRouter:
-
-1. Ves a [openrouter.ai/keys](https://openrouter.ai/keys) i crea un compte
-2. Clica **Create Key** i copia la clau (comença per `sk-or-...`)
-3. Afegeix una mica de crèdit a OpenRouter (5€ duren mesos)
-
-Configura-la (segons el teu sistema):
-
-- **PowerShell**: `$env:OPENROUTER_API_KEY="sk-or-EL_TEU_TOKEN"`
-- **cmd**: `set OPENROUTER_API_KEY=sk-or-EL_TEU_TOKEN`
-- **Linux/macOS**: `export OPENROUTER_API_KEY=sk-or-EL_TEU_TOKEN`
+- **PowerShell**: `$env:DEEPSEEK_API_KEY="sk-EL_TEU_TOKEN"`
+- **cmd**: `set DEEPSEEK_API_KEY=sk-EL_TEU_TOKEN`
+- **Linux/macOS**: `export DEEPSEEK_API_KEY=sk-EL_TEU_TOKEN`
 
 Quan utilitzis OpenCode, especifica el model:
 
 ```bash
-opencode run "..." --model openrouter/deepseek/deepseek-chat
+opencode run "..." --model deepseek/deepseek-chat
 ```
 
-> 💡 **Consell:** Per no haver d'escriure `--model` cada cop, crea un alias:
+> 💡 **Consell:** Per no haver d'escriure `--model` cada cop, pots crear un alias:
 >
 > **PowerShell** (al teu `$PROFILE`):
 > ```powershell
-> function opencode { & 'opencode' '--model', 'openrouter/deepseek/deepseek-chat' @args }
+> function opencode { & 'opencode' '--model', 'deepseek/deepseek-chat' @args }
 > ```
 >
 > **Linux/macOS** (al `~/.bashrc` o `~/.zshrc`):
 > ```bash
-> alias opencode='opencode --model openrouter/deepseek/deepseek-chat'
+> alias opencode='opencode --model deepseek/deepseek-chat'
 > ```
 
-### Opció B: OpenRouter (altres models)
-
-Si vols provar models més potents (Claude, GPT...):
-
-- **PowerShell**: `$env:OPENROUTER_API_KEY="sk-or-EL_TEU_TOKEN"`
-- **Linux/macOS**: `export OPENROUTER_API_KEY=sk-or-EL_TEU_TOKEN`
-
-```bash
-opencode run "..." --model openrouter/anthropic/claude-sonnet-4
-```
-
-### Opció C: Anthropic Claude (directe)
-
-- **PowerShell**: `$env:ANTHROPIC_API_KEY="sk-ant-..."`
-- **Linux/macOS**: `export ANTHROPIC_API_KEY=sk-ant-...`
-
-```bash
-opencode run "..."
-```
-
-> **🔒 Consell permanent:** Per no haver de configurar la clau cada cop:
->
-> | Sistema | On guardar-la | Comanda |
-> |---------|--------------|---------|
-> | **PowerShell** | `$PROFILE` | `Add-Content $PROFILE '$env:OPENROUTER_API_KEY="sk-or-..."'` |
-> | **cmd** | Variables d'entorn del sistema | Propietats del sistema → Avançat → Variables d'entorn |
-> | **Linux/macOS** | `~/.bashrc` o `~/.zshrc` | `echo 'export OPENROUTER_API_KEY=sk-or-...' >> ~/.bashrc` |
+> **🔒 Permanent:** Afegeix la variable d'entorn al teu perfil per no haver-la de posar cada cop (com es fa amb Hermes).
 
 ---
 
