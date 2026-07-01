@@ -126,38 +126,6 @@ Genera un sketch d'Arduino per a ESP32 que faci parpellejar un LED al GPIO2 cada
 
 Quan acabi, surt del TUI amb **`Ctrl+C`**.
 
-Repeteix el mateix flux per a altres projectes:
-
-### Pràctica: Sensor DHT11
-
-```bash
-mkdir Exercici2_DHT11
-cd Exercici2_DHT11
-opencode
-```
-
-Dins del TUI:
-
-```
-Genera un sketch per ESP32 que llegeixi un sensor DHT11 al GPIO4 i mostri temperatura i humitat pel port sèrie. Desa'l a dht11.ino
-```
-
-### Pràctica: Connexió WiFi
-
-```bash
-mkdir Exercici3_WiFi
-cd Exercici3_WiFi
-opencode
-```
-
-Dins del TUI:
-
-```
-Genera un sketch per ESP32 que es connecti a WiFi (SSID: 'ElMeuWifi', password: '12345678') i faci una petició HTTP GET a example.com. Desa'l a wifi-test.ino
-```
-
-Cada projecte tindrà la seva carpeta amb el fitxer `.ino` generat.
-
 ---
 
 ## Pas 5: Revisa i millora codi existent
