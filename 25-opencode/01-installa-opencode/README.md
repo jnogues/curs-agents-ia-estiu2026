@@ -34,6 +34,18 @@ npm install -g opencode-ai@latest
 >
 > 🔧 **Error de permisos?** Assegura't d'obrir el terminal **com a administrador**. A Windows, `npm -g` necessita permisos d'admin.
 
+> 🪣 **No tens permisos d'admin?** Prova amb **Scoop** (instal·la a l'espai d'usuari, sense admin):
+>
+> ```powershell
+> # 1. Instal·la Scoop (un sol cop)
+> Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+> irm get.scoop.sh | iex
+>
+> # 2. Instal·la Node.js i OpenCode
+> scoop install nodejs
+> npm install -g opencode-ai@latest
+> ```
+
 (Tarda 1-2 minuts)
 
 Verifica:
