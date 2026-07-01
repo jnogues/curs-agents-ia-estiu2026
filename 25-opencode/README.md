@@ -19,9 +19,9 @@ El flux de treball és sempre el mateix:
 
 ## ① Instal·lació
 
-| # | Guia | Què aprendràs | Durada |
-|---|------|---------------|--------|
-| 01 | [Installa i usa OpenCode](./01-installa-opencode/) | Instal·lar, configurar API key i provar OpenCode | 30 min |
+| Guia | Què aprendràs | Durada |
+|------|---------------|--------|
+| [Installa i usa OpenCode](./01-installa-opencode/) | Instal·lar, configurar API key i provar OpenCode | 30 min |
 
 ## ② Preparar les eines
 
