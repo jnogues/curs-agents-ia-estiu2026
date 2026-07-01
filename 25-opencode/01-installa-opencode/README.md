@@ -22,21 +22,41 @@ Instal·lar OpenCode al teu ordinador i usar-lo per programar ESP32 amb assistè
 
 ## Pas 1: Instal·la OpenCode
 
-Obre un **terminal** al teu ordinador:
+### 🪟 Windows (la majoria d'alumnes)
+
+Obre **PowerShell (o cmd) com a administrador** — botó dret → "Executa com a administrador":
+
+```powershell
+npm install -g opencode-ai@latest
+```
+
+> 💡 **No tens npm?** Instal·la Node.js (versió 18+) des de [nodejs.org](https://nodejs.org) i torna a executar la comanda.
+>
+> 🔧 **Error de permisos?** Assegura't d'obrir el terminal **com a administrador**. A Windows, `npm -g` necessita permisos d'admin.
+
+(Tarda 1-2 minuts)
+
+Verifica:
+
+```powershell
+opencode --version
+```
+
+### 🐧 Linux / macOS
+
+Obre un terminal i executa:
 
 ```bash
 npm install -g opencode-ai@latest
 ```
 
-(Tarda 1-2 minuts)
+> 💡 **No tens npm?** Instal·la Node.js des de [nodejs.org](https://nodejs.org) o amb el teu gestor de paquets (`sudo apt install nodejs npm` a Ubuntu/Debian).
 
 Verifica:
 
 ```bash
 opencode --version
 ```
-
-> **No tens npm?** Instal·la Node.js primer des de [nodejs.org](https://nodejs.org) (versió 18+).
 
 ---
 
@@ -52,11 +72,11 @@ DeepSeek és el model més barat i el que fem servir al curs. OpenCode l'usa a t
 2. Clica **Create Key** i copia la clau (comença per `sk-or-...`)
 3. Afegeix una mica de crèdit a OpenRouter (5€ duren mesos)
 
-Configura-la:
+Configura-la (segons el teu sistema):
 
-```bash
-export OPENROUTER_API_KEY=sk-or-EL_TEU_TOKEN
-```
+- **PowerShell**: `$env:OPENROUTER_API_KEY="sk-or-EL_TEU_TOKEN"`
+- **cmd**: `set OPENROUTER_API_KEY=sk-or-EL_TEU_TOKEN`
+- **Linux/macOS**: `export OPENROUTER_API_KEY=sk-or-EL_TEU_TOKEN`
 
 Quan utilitzis OpenCode, especifica el model:
 
@@ -65,6 +85,13 @@ opencode run "..." --model openrouter/deepseek/deepseek-chat
 ```
 
 > 💡 **Consell:** Per no haver d'escriure `--model` cada cop, crea un alias:
+>
+> **PowerShell** (al teu `$PROFILE`):
+> ```powershell
+> function opencode { & 'opencode' '--model', 'openrouter/deepseek/deepseek-chat' @args }
+> ```
+>
+> **Linux/macOS** (al `~/.bashrc` o `~/.zshrc`):
 > ```bash
 > alias opencode='opencode --model openrouter/deepseek/deepseek-chat'
 > ```
@@ -73,23 +100,29 @@ opencode run "..." --model openrouter/deepseek/deepseek-chat
 
 Si vols provar models més potents (Claude, GPT...):
 
+- **PowerShell**: `$env:OPENROUTER_API_KEY="sk-or-EL_TEU_TOKEN"`
+- **Linux/macOS**: `export OPENROUTER_API_KEY=sk-or-EL_TEU_TOKEN`
+
 ```bash
-export OPENROUTER_API_KEY=sk-or-EL_TEU_TOKEN
 opencode run "..." --model openrouter/anthropic/claude-sonnet-4
 ```
 
 ### Opció C: Anthropic Claude (directe)
 
+- **PowerShell**: `$env:ANTHROPIC_API_KEY="sk-ant-..."`
+- **Linux/macOS**: `export ANTHROPIC_API_KEY=sk-ant-...`
+
 ```bash
-export ANTHROPIC_API_KEY=sk-ant-...
 opencode run "..."
 ```
 
-> **Consell permanent:** Per no exportar la clau cada cop, afegeix-la al `~/.bashrc`:
-> ```bash
-> echo 'export OPENROUTER_API_KEY=sk-or-...' >> ~/.bashrc
-> source ~/.bashrc
-> ```
+> **🔒 Consell permanent:** Per no haver de configurar la clau cada cop:
+>
+> | Sistema | On guardar-la | Comanda |
+> |---------|--------------|---------|
+> | **PowerShell** | `$PROFILE` | `Add-Content $PROFILE '$env:OPENROUTER_API_KEY="sk-or-..."'` |
+> | **cmd** | Variables d'entorn del sistema | Propietats del sistema → Avançat → Variables d'entorn |
+> | **Linux/macOS** | `~/.bashrc` o `~/.zshrc` | `echo 'export OPENROUTER_API_KEY=sk-or-...' >> ~/.bashrc` |
 
 ---
 
@@ -223,55 +256,3 @@ Obre l'Arduino IDE, carrega el fitxer millorat, selecciona la placa i el port, i
 | **OpenCode no entén d'ESP32** | Sigues explícit: "per a ESP32, amb Arduino framework" |
 | **Error de permisos npm a Windows** | Obre PowerShell o cmd **com a administrador** i prova `npm install -g opencode-ai@latest` de nou |
 
----
-
-## 🪟 Notes per a Windows (x64)
-
-OpenCode funciona perfectament a Windows x64. Aquí tens les diferències principals:
-
-### Instal·lació
-
-```powershell
-# Obre PowerShell (o cmd) i executa:
-npm install -g opencode-ai@latest
-```
-
-Si dona error de permisos, obre el terminal **com a administrador**.
-
-### Configurar l'API key
-
-A **PowerShell**:
-```powershell
-$env:OPENROUTER_API_KEY="sk-or-EL_TEU_TOKEN"
-```
-
-A **cmd**:
-```cmd
-set OPENROUTER_API_KEY=sk-or-EL_TEU_TOKEN
-```
-
-> Per fer-ho permanent a PowerShell: afegeix `$env:OPENROUTER_API_KEY="sk-or-..."` al teu **`$PROFILE`** (`notepad $PROFILE`). A cmd: Variables d'Entorn del Sistema (sistema → propietats avançades).
-
-### Rutes de fitxers
-
-PowerShell accepta barres `/` normals (com a Linux), així que les comandes de la guia funcionen tal qual:
-
-```powershell
-opencode run "Revisa aquest codi" -f 30-code/Exercici-01/Exercici-01.ino
-```
-
-### Port USB
-
-A Windows, l'ESP32 es connecta a un port **COM** (no `/dev/ttyUSB0`). Obre l'Arduino IDE i a **Tools → Port** tria el que aparegui (COM3, COM4...).
-
-### Alias permanent
-
-A PowerShell, afegeix això al teu `$PROFILE`:
-```powershell
-function opencode { & 'opencode' '--model', 'openrouter/deepseek/deepseek-chat' @args }
-```
-
-A cmd, crea un fitxer `opencode.cmd` al PATH:
-```cmd
-@opencode --model openrouter/deepseek/deepseek-chat %*
-```
