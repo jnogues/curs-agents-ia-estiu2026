@@ -6,11 +6,22 @@ Perfecte per programar **ESP32** i **ESP8266** amb assistència d'IA!
 
 ---
 
+## Com es treballa amb OpenCode
+
+El flux de treball és sempre el mateix:
+
+1. **Crea una carpeta** per al teu projecte (`mkdir Exercici1 && cd Exercici1`)
+2. **Obre OpenCode** amb `opencode` (s'obre el TUI interactiu)
+3. **Explica-li què vols** en català (ex: "Fes un blink per ESP32 al GPIO2")
+4. **Surt amb Ctrl+C** i obre el codi generat amb l'Arduino IDE
+
+---
+
 ## ① Instal·lació
 
 | # | Guia | Què aprendràs | Durada |
 |---|------|---------------|--------|
-| 01 | [Installa i usa OpenCode](./01-installa-opencode/README.md) | Instal·lar, configurar API key i provar OpenCode | 30 min |
+| 01 | [Installa i usa OpenCode](./01-installa-opencode/) | Instal·lar, configurar API key i provar OpenCode | 30 min |
 
 ## ② Preparar les eines
 
@@ -27,46 +38,19 @@ Abans de programar plaques, cal tenir les eines de compilació:
 
 ## ③ Programar ESP32 amb Arduino
 
-**Per a alumnes amb placa ESP32 (ISB-32devBoard o similar):**
-
-| Prompt | Què fa |
-|--------|--------|
-| [Blink](./03-esp32-arduino/blink.md) | LED parpellejant al GPIO2 |
-| [WiFi](./03-esp32-arduino/connecta-wifi.md) | Connectar-se a WiFi i fer petició HTTP |
-| [Sensor DHT](./03-esp32-arduino/sensor-dht.md) | Llegir temperatura i humitat |
-| [MQTT](./03-esp32-arduino/mqtt.md) | Publicar i subscriure's a MQTT |
+[Guies per a plaques ESP32](./03-esp32-arduino/) — Blink, WiFi, sensor DHT, MQTT.
 
 ## ④ Programar ESP8266 amb Arduino
 
-**Per a alumnes amb placa NodeMCU (ESP8266) — [consulta el pinout](04-esp8266-arduino/hardware.md):**
-
-| Prompt | Què fa |
-|--------|--------|
-| [Blink](./04-esp8266-arduino/blink.md) | LED integrat al GPIO16 |
-| [WiFi](./04-esp8266-arduino/connecta-wifi.md) | Connectar-se a WiFi i fer petició HTTP |
-| [Sensor DHT](./04-esp8266-arduino/sensor-dht.md) | Llegir temperatura i humitat |
-| [MQTT](./04-esp8266-arduino/mqtt.md) | Publicar i subscriure's a MQTT |
+[Guies per a plaques NodeMCU (ESP8266)](./04-esp8266-arduino/) — Blink, WiFi, sensor DHT, MQTT, pinout.
 
 ## ⑤ OpenCode fa exercicis sol
 
-Quan ja sàpigues usar OpenCode, deixa que ell faci la feina:
-
-| Prompt | Què fa |
-|--------|--------|
-| [Completar exercici 01](./05-exercicis-auto/completar-ex01.md) | Llegeix, analitza i millora l'Exercici 01 del curs |
-| [Completar qualsevol](./05-exercicis-auto/completar-qualsevol.md) | Tria l'exercici (01-08) que vulguis fer |
-| [Depurar codi](./05-exercicis-auto/depurar-codi.md) | Revisa i corregeix errors automàticament |
+Quan ja sàpigues usar OpenCode, [deixa que ell faci la feina](./05-exercicis-auto/) — completar exercicis, depurar codi.
 
 ## ⑥ MicroPython per ESP8266
 
-Per als que vulgueu programar la NodeMCU amb MicroPython enlloc d'Arduino:
-
-| Prompt | Què fa |
-|--------|--------|
-| [Flashejar MicroPython](./06-micropython/flasheja-micropython.md) | Esborra flash, descarrega firmware i flasheja |
-| [Pujar scripts](./06-micropython/puja-scripts.md) | Puja boot.py i exercicis al dispositiu |
-
-> Els exercicis de MicroPython els trobareu a [../35-micropython-esp8266/](../35-micropython-esp8266/).
+[Guies per programar amb MicroPython](./06-micropython/) — flashejar firmware i pujar scripts.
 
 ---
 
